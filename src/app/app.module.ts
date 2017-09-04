@@ -12,6 +12,8 @@ import { FaqComponent } from './faq/faq.component';
 
 
 import { routing } from './app.routes';
+import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { routing } from './app.routes';
     HomeComponent,
     AboutComponent,
     CoursesComponent,
-    FaqComponent
+    FaqComponent,
+    TestimonialsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
