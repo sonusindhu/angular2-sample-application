@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { routing } from './app.routes';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ContactComponent } from './contact/contact.component';
 
+import { CommonService } from './services/common.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +29,10 @@ import { ContactComponent } from './contact/contact.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     routing
   ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

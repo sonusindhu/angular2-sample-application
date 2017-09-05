@@ -12,7 +12,7 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 
 // Route Configuration
 export const routes: Routes = [
-	{ path: '', component: HomeComponent},
+	{ path: '', component: HomeComponent, pathMatch: 'full'},
 	{ path: 'about', component: AboutComponent },
 	{ path: 'courses', component: CoursesComponent },
 	{ path: 'faq', component: FaqComponent },
