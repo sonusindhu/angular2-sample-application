@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../services/common.service'
 
 @Component({
   selector: 'app-courses',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
-  constructor() { }
+  private dataUrl = 'http://sonu.pnf-sites.info/work1/public/api/courses';
+	
+	courses: any;
+	constructor(private myHttp: CommonService) { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+		this.myHttp.getCourses(this.dataUrl).subscribe(
+			data => {
+				this.courses = data;
+			}
+		);
+	}
 
 }

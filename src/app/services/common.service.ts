@@ -13,9 +13,22 @@ export class CommonService {
 		return this.http.get(url)
 		.map(data => {
 			data.json();
-			// the console.log(...) line prevents your code from working 
-			// either remove it or add the line below (return ...)
-			console.log("I CAN SEE DATA HERE: ", data.json());
+			return data.json();
+		});
+	}
+
+	getCourses(url:string) {
+		return this.http.get(url)
+		.map(data => {
+			data.json();
+			return data.json();
+		});
+	}
+
+	findCourse(url:string) {
+		return this.http.get(url)
+		.map(data => {
+			data.json();
 			return data.json();
 		});
 	}

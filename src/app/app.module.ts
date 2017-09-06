@@ -16,6 +16,7 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ContactComponent } from './contact/contact.component';
 
 import { CommonService } from './services/common.service';
+import { CourseDetailsComponent } from './course-details/course-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { CommonService } from './services/common.service';
     CoursesComponent,
     FaqComponent,
     TestimonialsComponent,
-    ContactComponent
+    ContactComponent,
+    CourseDetailsComponent
   ],
   imports: [
     BrowserModule,
