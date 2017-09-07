@@ -8,17 +8,16 @@ import { CommonService } from '../services/common.service'
 	styleUrls: ['./testimonials.component.css']
 })
 export class TestimonialsComponent implements OnInit {
-	private dataUrl = 'http://sonu.pnf-sites.info/work1/public/api/testimonials';
 	testimonials: any;
 	constructor(private myHttp: CommonService) { }
 
 	ngOnInit() {
-		this.myHttp.getDataObservable(this.dataUrl).subscribe(
+		this.myHttp.getDataObservable('testimonials').subscribe(
 			data => {
 				this.testimonials = data;
 				console.log("I CANT SEE DATA HERE: ", this.testimonials);
 			}
-			);
+		);
 	}
 
 }

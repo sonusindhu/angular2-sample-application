@@ -11,6 +11,9 @@ import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+
 // Route Configuration
 export const routes: Routes = [
 	{ path: '', component: HomeComponent, pathMatch: 'full'},
@@ -19,7 +22,9 @@ export const routes: Routes = [
 	{ path: 'course/:id', component: CourseDetailsComponent },
 	{ path: 'faq', component: FaqComponent },
 	{ path: 'testimonials', component: TestimonialsComponent },
-	{ path: 'contact', component: ContactComponent }
+	{ path: 'contact', component: ContactComponent },
+	{ path: 'login', component: LoginComponent },
+	{ path: 'signup', component: SignupComponent }
 ];
 
 // Deprecated provide

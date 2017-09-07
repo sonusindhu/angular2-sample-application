@@ -8,7 +8,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CourseDetailsComponent implements OnInit {
 
-	private dataUrl = 'http://sonu.pnf-sites.info/work1/public/api/course/find/';
 	course: any;
 	id: number;
 	constructor(private myHttp: CommonService,public route: ActivatedRoute) { }
@@ -20,7 +19,7 @@ export class CourseDetailsComponent implements OnInit {
 	            this.id = params['id'];
 	    });
 
-		this.myHttp.findCourse(this.dataUrl+this.id).subscribe(
+		this.myHttp.findCourse('course/find/'+this.id).subscribe(
 			data => {
 				this.course = data;
 			}
