@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 
@@ -57,6 +57,24 @@ export class CommonService {
 			data.json();
 			return data.json();
 		});
+	}
+
+	postComment(contact:any){
+		let urlSearchParams = new URLSearchParams();
+	    urlSearchParams.append('email', contact.email);
+	    urlSearchParams.append('phone', contact.phone);
+	    urlSearchParams.append('name', contact.name);
+	    urlSearchParams.append('comment', contact.comment);
+	    let body = urlSearchParams.toString()
+
+	    let headers = new Headers();
+	    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+	    return this.http.post(this.API_ENDPOINT+'contact' , body , {headers:headers})
+		    .map(data => {
+		      data.json();
+		      return data.json();
+	    });
 	}
 
 }

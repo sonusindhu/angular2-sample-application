@@ -17,27 +17,35 @@
 			<div class="clearfix"></div>
 			<div class="row">
 				<div class="col-md-7 col-sm-6">
-					<form class="form_sec">
-						<div class="form-group custom_form">
-							<label for="usr">Name:</label>
-							<input type="text" class="form-control" id="usr">
+
+					<div class="row alert alert-danger" *ngIf='errorMsg'>
+						<p *ngFor='let error of errorMsg;'>{{error}}</p>
+					</div>
+
+					<div class="form-group custom_form">
+						<label for="usr">Name:</label>
+						<input type="text" class="form-control" id="usr" [(ngModel)]="contact.name">
+					</div>
+					<div class="form-group custom_form">
+						<label for="usr">Email:</label>
+						<input type="email" class="form-control" id="usr" [(ngModel)]="contact.email">
+					</div>
+					<div class="form-group custom_form">
+						<label for="usr">Phone:</label>
+						<input type="text" class="form-control" id="usr" [(ngModel)]="contact.phone">
+					</div>
+					<div class="form-group custom_form2">
+						<label for="comment">Comment:</label>
+						<textarea class="form-control" rows="5" id="comment" [(ngModel)]="contact.comment"></textarea>
+					</div>
+					<div class="send_btn_sec">
+						<a href="javascript:;" (click)="comment()" class="send_btn pull-left" >SEND</a>
+
+						<div class="row alert alert-success pull-right" *ngIf='successMsg'>
+							<p>{{successMsg}}</p>
 						</div>
-						<div class="form-group custom_form">
-							<label for="usr">Email:</label>
-							<input type="email" class="form-control" id="usr">
-						</div>
-						<div class="form-group custom_form">
-							<label for="usr">Phone:</label>
-							<input type="text" class="form-control" id="usr">
-						</div>
-						<div class="form-group custom_form2">
-							<label for="comment">Comment:</label>
-							<textarea class="form-control" rows="5" id="comment"></textarea>
-						</div>
-						<div class="send_btn_sec">
-							<a href="#" class="send_btn">SEND</a>
-						</div>
-					</form>
+					</div>
+					
 				</div>
 				<div class="col-md-5 col-sm-6">
 					<h3 class="address_heading">Address</h3>
