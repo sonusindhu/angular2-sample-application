@@ -4,18 +4,29 @@
 			<div class="col-md-12">
 				<div class="pull-left email_left_sec">
 					<span class="email_sec">
-						<i class="fa fa-envelope-o email_icn" aria-hidden="true"></i>
-						<span class="email_text">sonupnf@gmail.com</span>
+						<!-- <i class="fa fa-envelope-o email_icn" aria-hidden="true"></i> -->
+						<span class="email_text">Welcome</span>
 					</span>
 					<span class="email_sec">
-						<i class="fa fa-mobile phone_icn" aria-hidden="true"></i>
-						<span class="email_text">+91 9999999999 </span>
+						<!-- <i class="fa fa-mobile phone_icn" aria-hidden="true"></i> -->
+						<span class="email_text" *ngIf="authService.isLoggedIn">
+							{{current_user.email}}
+						</span>
+
+						<span class="email_text" *ngIf="!authService.isLoggedIn">
+							Guest
+						</span>
+
 					</span>
 				</div>
 				<div class="pull-right topbar_signup_sec">
 					<ul class="nav navbar-nav navbar-right right_ul">
-						<li class="signup_li"><a routerLink="/signup">Sign Up</a></li>
-						<li class="login_li"><a routerLink="/login">Login</a></li>
+						<li class="signup_li"><a routerLink="/signup" *ngIf="!authService.isLoggedIn">Sign Up</a></li>
+						<li class="login_li"><a routerLink="/login" *ngIf="!authService.isLoggedIn">Login</a></li>
+
+						<li class="signup_li"><a routerLink="/dashboard" *ngIf="authService.isLoggedIn">Dashboard</a></li>
+						<li class="login_li"><a (click)="logout()" href="javascript:;" *ngIf="authService.isLoggedIn">Logout</a></li>
+
 					</ul>
 				</div>
 				<div class="pull-right topbar_social">

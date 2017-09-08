@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService, User} from '../services/auth.service'
+import {AuthenticationService} from '../services/auth.service'
+import {CommonService} from '../services/common.service'
+import {Router} from '@angular/router';
 
 @Component({
 	selector: 'app-login',
@@ -8,19 +10,29 @@ import {AuthenticationService, User} from '../services/auth.service'
 	styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-	public user:any = new User('','');
+	public user:any = { email:'',password:''};
     public errorMsg:string = '';
 
-	constructor(private _service:AuthenticationService) { }
+	constructor(
+		private _service:AuthenticationService, 
+		private CommonService:CommonService, private _router:Router
+	) { }
 
 	ngOnInit() {
 		
 	}
 
 	login() {
-        if(!this._service.login(this.user)){
-            this.errorMsg = 'Failed to login';
-        }
+		this._service.login(this.user).subscribe(
+			data => {
+				if(data.error){
+		        	this.errorMsg = 'Invalid email/password combination.';
+				} else{
+		        	localStorage.setItem("user", JSON.stringify(data));
+		        	this._router.navigate(['dashboard']); 
+		        }
+			}
+		);
     }
 
 }

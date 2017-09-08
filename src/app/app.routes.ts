@@ -1,6 +1,3 @@
-// Imports
-// Deprecated import
-// import { provideRouter, RouterConfig } from '@angular/router';
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
@@ -10,9 +7,14 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
-
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+
+import { AuthGuard } from './_guard/auth.service';
 
 // Route Configuration
 export const routes: Routes = [
@@ -24,12 +26,14 @@ export const routes: Routes = [
 	{ path: 'testimonials', component: TestimonialsComponent },
 	{ path: 'contact', component: ContactComponent },
 	{ path: 'login', component: LoginComponent },
-	{ path: 'signup', component: SignupComponent }
-];
+	{ path: 'signup', component: SignupComponent },
+	{ path: 'notfound', component: NotfoundComponent },
 
-// Deprecated provide
-// export const APP_ROUTER_PROVIDERS = [
-//   provideRouter(routes)
-// ];
+	// user login
+	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+
+	// otherwise redirect to notfound
+    { path: '**', redirectTo: 'notfound' }
+];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

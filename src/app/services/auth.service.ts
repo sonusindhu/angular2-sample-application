@@ -1,35 +1,41 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 
-export class User {
-  constructor(
-    public email: string,
-    public password: string) { }
-}
+import {Http, Headers} from '@angular/http';
+import 'rxjs/add/operator/map';
+import { environment } from '../../environments/environment';
 
-var users = [
-  new User('sonupnf@gmail.com','123456'),
-  new User('info@sonusindhu.com','123456')
-];
 
 @Injectable()
 export class AuthenticationService {
-
-  constructor(private _router: Router){}
+  public isLoggedIn:any;
+  public redirectUrl:string="login";
+  public API_ENDPOINT:any;
+  constructor(private _router: Router, private http:Http){
+    this.API_ENDPOINT = environment.API_ENDPOINT;
+  }
 
   logout() {
+
     localStorage.removeItem("user");
     this._router.navigate(['login']);
   }
 
   login(user:any){
-    var authenticatedUser:any = users.find(u => u.email === user.email);
-    if (authenticatedUser && authenticatedUser.password === user.password){
-      localStorage.setItem("user", authenticatedUser);
-      this._router.navigate(['dashboard']);      
-      return true;
-    }
-    return false;
+
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('email', user.email);
+    urlSearchParams.append('password', user.password);
+    let body = urlSearchParams.toString()
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    return this.http.post(this.API_ENDPOINT+'user/login' , body , {headers:headers})
+    .map(data => {
+      data.json();
+      return data.json();
+    });
 
   }
 
@@ -38,4 +44,5 @@ export class AuthenticationService {
       this._router.navigate(['Login']);
     }
   } 
+
 }
