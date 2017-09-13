@@ -10,11 +10,11 @@ import { CartService } from '../services/cart.service'
 export class CartComponent implements OnInit {
 	public cart:any;
     private _cartObserver: any;
-    private _cartStore: {
+    public _cartStore: {
         cart: any
     };
 	public courses: any;
-	constructor(private cartService:CartService) {
+	constructor(public cartService:CartService) {
 		this.getCart();
 	}
 

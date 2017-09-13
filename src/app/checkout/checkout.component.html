@@ -1,0 +1,116 @@
+<div class="container-fluid about_page_sec">
+	<div class="overlay"></div>
+	<div class="container about_container">
+		<h3 class="about_heading">Checkout</h3>
+	</div>
+</div>
+
+<div class="container-fluid checkout_sec2">
+	<div class="container">
+
+		<div class="row checkout_row">
+			<div class="col-md-8">
+				<div class="contact_detail_sec">
+					
+					<form class="checkoutForm" id="checkoutForm" action="checkout" method="post">
+
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="card_name" class="control-label">Name on card:</label>
+								<input type="text" class="form-control" id="card_name" name="payment[card_name]" required="" >
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="card_number" class="control-label">Card Number:</label>
+								<input type="text" class="form-control" id="card_number" name="payment[card_number]" required="" >
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-md-4">
+								<label for="expiry_month" class="control-label">Expiry month:</label>
+								<select class="form-control" name="payment[expiry_month]">
+									<option value="0">--Select month--</option>
+									<option value="1">Jan</option>
+									<option value="2">Feb</option>
+									<option value="3">Mar</option>
+									<option value="4">Apr</option>
+									<option value="5">May</option>
+									<option value="6">Jun</option>
+									<option value="7">Jul</option>
+									<option value="8">Aug</option>
+									<option value="9">Sep</option>
+									<option value="10">Oct</option>
+									<option value="11">Nov</option>
+									<option value="12">Dec</option>
+								</select>
+							</div>
+
+							<div class="form-group col-md-4">
+								<label for="expiry_year" class="control-label">Expiry year:</label>
+								<select class="form-control" name="payment[expiry_year]" required="">
+									<option value="0">--Select year--</option>
+									<option value="2017">2017</option>
+									<option value="2018">2018</option>
+									<option value="2019">2019</option>
+									<option value="2020">2020</option>
+									<option value="2021">2021</option>
+									<option value="2022">2022</option>
+									<option value="2023">2023</option>
+									<option value="2024">2024</option>
+									<option value="2025">2025</option>
+									<option value="2026">2026</option>
+									<option value="2027">2027</option>
+									<option value="2028">2028</option>
+									<option value="2029">2029</option>
+									<option value="2030">2030</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="card_cvv" class="control-label">Card CVV:</label>
+								<input type="text" class="form-control" id="card_cvv" name="payment[card_cvv]" required="">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-md-8" style="margin-top: 20px;">
+								<label for="card_cvv" class="control-label"></label>
+								<input type="submit" class="checkout_btn2" value="Checkout">
+							</div>
+						</div>
+
+					</form>
+
+					<!-- <p>Existing Customers : <span>Save time by <a id="registration_login" data-toggle="modal" data-target="#loginModal" data-whatever="@fat">logging in</a> to your account and having everything prefilled for you</span></p>
+					<p>New Customers: <span><a href="#" title="Student Signup" data-toggle="modal" data-target="#signupModal" data-whatever="@fat">Register</a> with us to access order history and tracking</span></p> -->
+
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="summary_sec">
+					<h3>Cart Summary</h3>
+					<div class="table-responsive">          
+						<table class="table">
+							<tbody class="total_tbody">
+								<tr>
+									<td>Total</td>
+									<td></td>
+									<td>
+										${{cartService.cartTotals()|number}}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

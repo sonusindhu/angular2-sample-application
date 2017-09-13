@@ -13,6 +13,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 import { AuthGuard } from './_guard/auth.service';
 
@@ -29,6 +30,7 @@ export const routes: Routes = [
 	{ path: 'signup', component: SignupComponent },
 	{ path: 'notfound', component: NotfoundComponent },
 	{ path: 'cart', component: CartComponent },
+	{ path: 'checkout', component: CheckoutComponent },
 
 	// user login
 	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },

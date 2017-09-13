@@ -13,7 +13,7 @@ jsonHeader.append('Content-Type', 'application/json');
 export class CartService {
     public cart:any;
     private _cartObserver: any;
-    private _cartStore: {
+    public _cartStore: {
         cart: any
     };
 
