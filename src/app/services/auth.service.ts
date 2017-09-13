@@ -11,6 +11,7 @@ export class AuthenticationService {
   public isLoggedIn:any;
   public redirectUrl:string="login";
   public API_ENDPOINT:any;
+  public current_user:any;
   constructor(private _router: Router, private http:Http){
     this.API_ENDPOINT = environment.API_ENDPOINT;
   }
@@ -44,5 +45,11 @@ export class AuthenticationService {
       this._router.navigate(['Login']);
     }
   } 
+
+  userInfo(){
+    return (localStorage.getItem("user"))? JSON.parse(localStorage.getItem("user")) : null;
+  }
+
+  
 
 }

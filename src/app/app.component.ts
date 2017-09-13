@@ -9,17 +9,14 @@ import { AuthenticationService }      from './services/auth.service';
 export class AppComponent {
 	title = 'app';
 	public current_user:any;
-	public userData: any;
 
 	constructor(public authService: AuthenticationService) {
 		if (localStorage.getItem("user") === null){
 			this.authService.isLoggedIn = false;
 		}else{
-			this.userData = localStorage.getItem("user");
-			this.current_user = JSON.parse(this.userData);
+			this.current_user = authService.userInfo();
 			this.authService.isLoggedIn = true;
 		}
-		
 	}
 
 	logout() {

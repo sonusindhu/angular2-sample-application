@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
 
 	constructor(
 		private _service:AuthenticationService, 
-		private CommonService:CommonService, private _router:Router
+		private CommonService:CommonService, 
+		private _router:Router
 	) { }
 
 	ngOnInit() {
@@ -29,7 +30,8 @@ export class LoginComponent implements OnInit {
 		        	this.errorMsg = 'Invalid email/password combination.';
 				} else{
 		        	localStorage.setItem("user", JSON.stringify(data));
-		        	this._router.navigate(['dashboard']); 
+		        	//this._router.navigate(['/dashboard']);
+		        	window.location.href = "/dashboard"
 		        }
 			}
 		);

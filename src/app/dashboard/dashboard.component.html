@@ -9,9 +9,49 @@
 	<div class="container">
 		<div class="row">
 
-			<h2>Welcome back!</h2>
-				
-		</div>
+			
+			<div class="mainbody container-fluid">
+				<div class="row">
+					<div class="navbar-wrapper">
+						<div class="container-fluid">
+							
+							<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<div class="media">
+											<div align="center">
+												<img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
+											</div>
+											<div class="media-body">
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										
+										<h1 class="panel-title" style="font-size:30px;">{{current_user.firstname}} {{current_user.lastname}} <small>{{current_user.email}}</small> 
+											<i class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="{{current_user.firstname}} is sharing with you"></i>
+										</h1>
+										<hr>
+										<p>
+										{{current_user.about_me}}
+										</p>
+										
+										
+									</div>
+								</div>
+								<hr>
+								
+							</div>
+						</div>
+					</div>
 
-	</div>
-</div>
+
+				</div>
+
+			</div>
+		</div>

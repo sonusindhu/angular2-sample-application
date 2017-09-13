@@ -10,7 +10,9 @@
 		<div class="row">
 
 			<div class="signup_btn_sec text-center">
-				<a href="#" class="course_sign">Add to cart</a>
+				
+				<a (click)="addItem(course)" href="javascript:;" class="sign_btn3" *ngIf="!placeItem(course)">Add to cart</a>
+				<a (click)="removeItem(course)" href="javascript:;" class="sign_btn3" *ngIf="placeItem(course)">Remove from cart</a>
 			</div>
 
 			<div class="courses_box" [innerHTML]="course.long_description"></div>

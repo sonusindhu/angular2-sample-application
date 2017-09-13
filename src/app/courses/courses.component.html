@@ -33,7 +33,10 @@
 							</p>
 							<div class="read_btn_sec">
 								<a routerLink='/course/{{course.id}}' class="read_btn">Read More</a>
-								<a href="#" class="sign_btn3">Add to cart</a>
+								
+								<a (click)="addItem(course)" href="javascript:;" class="sign_btn3" *ngIf="!placeItem(course)">Add to cart</a>
+								<a (click)="removeItem(course)" href="javascript:;" class="sign_btn3" *ngIf="placeItem(course)">Remove from cart</a>
+
 								<span class="pull-right">
 									<p class="price3">${{course.course_price | number}}</p>	
 								</span>

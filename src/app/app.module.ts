@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonService } from './services/common.service';
 import { AuthenticationService } from './services/auth.service';
 import { AuthGuard } from './_guard/auth.service';
+import { CartService } from './services/cart.service';
 import { routing } from './app.routes';
 
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     SignupComponent,
     NotfoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
     routing
   ],
-  providers: [CommonService,AuthenticationService,AuthGuard],
+  providers: [CommonService,AuthenticationService,AuthGuard,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

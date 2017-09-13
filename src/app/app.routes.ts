@@ -12,7 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { CartComponent } from './cart/cart.component';
 
 import { AuthGuard } from './_guard/auth.service';
 
@@ -28,6 +28,7 @@ export const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'signup', component: SignupComponent },
 	{ path: 'notfound', component: NotfoundComponent },
+	{ path: 'cart', component: CartComponent },
 
 	// user login
 	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
