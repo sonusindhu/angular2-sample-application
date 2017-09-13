@@ -8,11 +8,14 @@
 <div class="container-fluid welcome_sec">
 	<div class="container">
 		<div class="row">
+			<div class="col-md-12">
+				<div class="signup_btn_sec text-center">
+					<a href="javascript:;" routerLink="/courses" class="btn read_btn" >Back</a>
 
-			<div class="signup_btn_sec text-center">
-				
-				<a (click)="addItem(course)" href="javascript:;" class="sign_btn3" *ngIf="!placeItem(course)">Add to cart</a>
-				<a (click)="removeItem(course)" href="javascript:;" class="sign_btn3" *ngIf="placeItem(course)">Remove from cart</a>
+					<a (click)="addItem(course)" href="javascript:;" class="btn sign_btn3" *ngIf="!placeItem(course)">Add to cart</a>
+
+					<a (click)="removeItem(course)" href="javascript:;" class="btn sign_btn3" *ngIf="placeItem(course)" style="background: #d9534f; border-color: #d9534f">Remove from cart</a>
+				</div>
 			</div>
 
 			<div class="courses_box" [innerHTML]="course.long_description"></div>

@@ -30,6 +30,7 @@
 						<li class="login_li">
 							<a routerLink="/cart">
 								<i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 21px; color: rgb(255, 255, 255);"></i>
+								<span class="badge" style="margin-left: -10px; background-color: #d9534f; margin-top: -20px;" *ngIf="cartService._cartStore.cart.length">{{cartService._cartStore.cart.length}}</span>
 							</a>
 						</li>
 
@@ -72,6 +73,10 @@
 							<li [routerLinkActive]="['active']"><a routerLink="testimonials" class="page-scroll">Testimonial</a></li>
 							<li [routerLinkActive]="['active']"><a routerLink="faq" class="page-scroll">FAQs</a></li>
 							<li [routerLinkActive]="['active']"><a routerLink="contact" class="page-scroll">Contact Us</a></li>
+
+							<li [routerLinkActive]="['active']" class="cartLink" style="display: none;"><a routerLink="cart" class="page-scroll">Cart
+							<span class="badge" style="margin-left: -10px; background-color: #d9534f; margin-top: -20px;" *ngIf="cartService._cartStore.cart.length">{{cartService._cartStore.cart.length}}</span>
+							</a></li>
 						</ul>
 					</div>
 				</nav>

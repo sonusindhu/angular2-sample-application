@@ -32,8 +32,12 @@ export class CartComponent implements OnInit {
 	}
 
 	isCart(){
-		console.log(this.cart.length)
 		return this.cart.length;
+	}
+
+	clearCart(){
+		this.cartService.clearCart();
+		this.getCart();
 	}
 
 }

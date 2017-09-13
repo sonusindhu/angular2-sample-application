@@ -47,7 +47,6 @@ export class CartService {
 
     removeItem(product: any) {
         this._cartStore.cart = this._cartStore.cart.filter(item => product.id !== item.id);
-        console.log(this._cartStore.cart)
         localStorage.setItem("cart" , JSON.stringify(this._cartStore.cart));
     }
 
@@ -67,5 +66,14 @@ export class CartService {
             total += cartItem.course_price;
         });
         return total;
+    }
+
+    isCart(){
+        return this.cart.length;
+    }
+
+    clearCart(){
+        localStorage.removeItem('cart');
+        this.createCartObserver();
     }
 }

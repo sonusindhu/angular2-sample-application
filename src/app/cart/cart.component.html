@@ -62,7 +62,7 @@
 				</div>
 				<div class="continue_shop_sec">
 					<a href="javascript:;" routerLink="/courses" class="continue_btn">Continue shopping</a>
-					<a href="javascript:;" class="clear_btn" *ngIf="isCart()">Clear bag</a>
+					<a href="javascript:;" class="clear_btn" *ngIf="isCart()" (click)="clearCart()">Clear bag</a>
 					<a href="javascript:;" routerLink="/checkout" class="checkout_btn pull-right" *ngIf="isCart()">Go to checkout</a>
 				</div>
 			</div>

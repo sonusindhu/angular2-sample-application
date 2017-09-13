@@ -39,9 +39,9 @@
 			$(window).scroll(function() {
 				if ($(this).scrollTop() >= 100) {
 					$('.navbar_sec').addClass('stickytop');
-
-				}
-				else {
+					$(".cartLink").show();
+				}else {
+					$(".cartLink").hide();
 					$('.navbar_sec').removeClass('stickytop');
 				}
 			});
