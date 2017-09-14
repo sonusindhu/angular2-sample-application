@@ -1,3 +1,83 @@
-<p>
-  signup works!
-</p>
+<div class="container-fluid about_page_sec">
+	<div class="overlay"></div>
+	<div class="container about_container">
+		<h3 class="about_heading">Signup</h3>
+	</div>
+</div>
+
+
+<div class="container-fluid checkout_sec2">
+	<div class="container">
+		
+		<div class="row checkout_row">
+			<div class="col-md-6 col-md-offset-3">
+				
+				
+
+				<div class="form-group col-md-12">
+					<label for="firstname" class="control-label">First name:</label>
+					<input type="text" class="form-control" id="firstname" [(ngModel)]="user.firstname">
+					<span *ngIf='errorMsg' style="color: red;">
+						<b *ngIf='errorMsg.firstname;'>{{errorMsg.firstname[0]}}</b>
+					</span>
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="lastname" class="control-label">Last name:</label>
+					<input type="text" class="form-control" id="lastname"[(ngModel)]="user.lastname">
+
+					<span *ngIf='errorMsg' style="color: red;">
+						<b *ngIf='errorMsg.lastname;'>{{errorMsg.lastname[0]}}</b>
+					</span>
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="email" class="control-label">Email:</label>
+					<input type="email" class="form-control" id="email" [(ngModel)]="user.email">
+
+					<span *ngIf='errorMsg' style="color: red;">
+						<b *ngIf='errorMsg.email;'>{{errorMsg.email[0]}}</b>
+					</span>
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="recipient-password" class="control-label">Password:</label>
+					<input type="password" class="form-control" id="recipientpassword" [(ngModel)]="user.password">
+
+					<span *ngIf='errorMsg' style="color: red;">
+						<b *ngIf='errorMsg.password;'>{{errorMsg.password[0]}}</b>
+					</span>
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="recipientconfirm" class="control-label">Confirm password:</label>
+					<input type="password" class="form-control" id="recipientconfirm"  [(ngModel)]="user.password_confirmation">
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="recipientterm" class="control-label">
+						<input type="checkbox" id="recipientterm" value="1" [(ngModel)]="user.terms"> 
+						You agree to the terms of use and acknowledge the privacy policy.
+
+
+					</label>
+					<p *ngIf='errorMsg' style="color: red;">
+						<b *ngIf='errorMsg.terms;'>{{errorMsg.terms[0]}}</b>
+					</p>
+
+				</div>
+
+				<div class="form-group col-md-12">
+					<label class="control-label pull-left">
+						<button type="button" class="btn btn-primary submitSignupForm" (click)="signup()">Signup</button>
+						<span> OR already have an account? <a routerLink="/login">Login here</a></span>
+					</label>
+				</div>
+				
+			
+
+
+			</div>
+		</div>
+	</div>
+</div>

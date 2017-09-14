@@ -10,87 +10,108 @@
 
 		<div class="row checkout_row">
 			<div class="col-md-8">
-				<div class="contact_detail_sec">
+				<div class="contact_detail_sec" style="float: left;">
+					<h3>Make a payment</h3>
+					<div class="checkoutForm" *ngIf="authService.isLoggedIn" >
+						
+						<div class="form-group col-md-10">
+							<label for="card_name" class="control-label">Name on card:</label>
+							<input type="text" class="form-control" id="card_name" name="payment[card_name]" [(ngModel)]="payment.card_name">
+
+							<span *ngIf='error' style="color: red;">
+								<b *ngIf='error.card_name;'>{{error.card_name[0]}}</b>
+							</span>
+						</div>
 					
-					<form class="checkoutForm" id="checkoutForm" action="checkout" method="post">
+						<div class="form-group col-md-10">
+							<label for="card_number" class="control-label">Card Number:</label>
+							<input type="text" class="form-control" id="card_number" name="payment[card_number]" [(ngModel)]="payment.card_number">
 
-						<div class="row">
-							<div class="form-group col-md-8">
-								<label for="card_name" class="control-label">Name on card:</label>
-								<input type="text" class="form-control" id="card_name" name="payment[card_name]" required="" >
-							</div>
+							<span *ngIf='error' style="color: red;">
+								<b *ngIf='error.card_number;'>{{error.card_number[0]}}</b>
+							</span>
+						</div>
+					
+						<div class="form-group col-md-4">
+							<label for="expiry_month" class="control-label">Expiry month:</label>
+							<select class="form-control" name="payment[expiry_month]" [(ngModel)]="payment.expiry_month">
+								<option value="">--Select month--</option>
+								<option value="1">Jan</option>
+								<option value="2">Feb</option>
+								<option value="3">Mar</option>
+								<option value="4">Apr</option>
+								<option value="5">May</option>
+								<option value="6">Jun</option>
+								<option value="7">Jul</option>
+								<option value="8">Aug</option>
+								<option value="9">Sep</option>
+								<option value="10">Oct</option>
+								<option value="11">Nov</option>
+								<option value="12">Dec</option>
+							</select>
+
+							<span *ngIf='error' style="color: red;">
+								<b *ngIf='error.expiry_month;'>{{error.expiry_month[0]}}</b>
+							</span>
 						</div>
 
-						<div class="row">
-							<div class="form-group col-md-8">
-								<label for="card_number" class="control-label">Card Number:</label>
-								<input type="text" class="form-control" id="card_number" name="payment[card_number]" required="" >
-							</div>
+						<div class="form-group col-md-4">
+							<label for="expiry_year" class="control-label">Expiry year:</label>
+							<select class="form-control" name="payment[expiry_year]" [(ngModel)]="payment.expiry_year">
+								<option value="">--Select year--</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+								<option value="2019">2019</option>
+								<option value="2020">2020</option>
+								<option value="2021">2021</option>
+								<option value="2022">2022</option>
+								<option value="2023">2023</option>
+								<option value="2024">2024</option>
+								<option value="2025">2025</option>
+								<option value="2026">2026</option>
+								<option value="2027">2027</option>
+								<option value="2028">2028</option>
+								<option value="2029">2029</option>
+								<option value="2030">2030</option>
+							</select>
+
+							<span *ngIf='error' style="color: red;">
+								<b *ngIf='error.expiry_year;'>{{error.expiry_year[0]}}</b>
+							</span>
+						</div>
+					
+						<div class="form-group col-md-10">
+							<label for="card_cvv" class="control-label">Card CVV:</label>
+							<input type="text" class="form-control" id="card_cvv" name="payment[card_cvv]" [(ngModel)]="payment.card_cvv">
+
+							<span *ngIf='error' style="color: red;">
+								<b *ngIf='error.card_cvv;'>{{error.card_cvv[0]}}</b>
+							</span>
+						</div>
+					
+						<div class="form-group col-md-10" style="margin-top: 20px;">
+							<label for="card_cvv" class="control-label"></label>
+							<input type="submit" class="checkout_btn2" value="Checkout" (click)="checkout()">
 						</div>
 
-						<div class="row">
-							<div class="form-group col-md-4">
-								<label for="expiry_month" class="control-label">Expiry month:</label>
-								<select class="form-control" name="payment[expiry_month]">
-									<option value="0">--Select month--</option>
-									<option value="1">Jan</option>
-									<option value="2">Feb</option>
-									<option value="3">Mar</option>
-									<option value="4">Apr</option>
-									<option value="5">May</option>
-									<option value="6">Jun</option>
-									<option value="7">Jul</option>
-									<option value="8">Aug</option>
-									<option value="9">Sep</option>
-									<option value="10">Oct</option>
-									<option value="11">Nov</option>
-									<option value="12">Dec</option>
-								</select>
-							</div>
+					</div>
 
-							<div class="form-group col-md-4">
-								<label for="expiry_year" class="control-label">Expiry year:</label>
-								<select class="form-control" name="payment[expiry_year]" required="">
-									<option value="0">--Select year--</option>
-									<option value="2017">2017</option>
-									<option value="2018">2018</option>
-									<option value="2019">2019</option>
-									<option value="2020">2020</option>
-									<option value="2021">2021</option>
-									<option value="2022">2022</option>
-									<option value="2023">2023</option>
-									<option value="2024">2024</option>
-									<option value="2025">2025</option>
-									<option value="2026">2026</option>
-									<option value="2027">2027</option>
-									<option value="2028">2028</option>
-									<option value="2029">2029</option>
-									<option value="2030">2030</option>
-								</select>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="form-group col-md-8">
-								<label for="card_cvv" class="control-label">Card CVV:</label>
-								<input type="text" class="form-control" id="card_cvv" name="payment[card_cvv]" required="">
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="form-group col-md-8" style="margin-top: 20px;">
-								<label for="card_cvv" class="control-label"></label>
-								<input type="submit" class="checkout_btn2" value="Checkout">
-							</div>
-						</div>
-
-					</form>
-
-					<!-- <p>Existing Customers : <span>Save time by <a id="registration_login" data-toggle="modal" data-target="#loginModal" data-whatever="@fat">logging in</a> to your account and having everything prefilled for you</span></p>
-					<p>New Customers: <span><a href="#" title="Student Signup" data-toggle="modal" data-target="#signupModal" data-whatever="@fat">Register</a> with us to access order history and tracking</span></p> -->
+					<div *ngIf="!authService.isLoggedIn" style="padding: 30px;">
+						<p>
+							Existing Customers : Save time by 
+							<a data-toggle="modal" data-target="#loginModal" href="javascript:;">logging in</a> 
+							to your account and having everything prefilled for you
+						</p>
+						<p>
+							New Customers: <a href="javascript:;" data-toggle="modal" data-target="#signupModal" >Register</a> 
+							with us to access order history and tracking
+						</p>
+					</div>
 
 				</div>
 			</div>
+
+
 			<div class="col-md-4">
 				<div class="summary_sec">
 					<h3>Cart Summary</h3>
@@ -114,3 +135,126 @@
 		<div class="clearfix"></div>
 	</div>
 </div>
+
+
+
+<!-- Checkout Registeration Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Register</h4>
+			</div>
+			<div class="modal-body pull-left">
+
+				<p class="alert alert-success" *ngIf='successReg'>{{successReg}}</p>
+
+				<div class="form-group col-md-12">
+					<label for="firstname" class="control-label">First name:</label>
+					<input type="text" class="form-control" id="firstname" [(ngModel)]="user.firstname">
+					<span *ngIf='errorReg' style="color: red;">
+						<b *ngIf='errorReg.firstname;'>{{errorReg.firstname[0]}}</b>
+					</span>
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="lastname" class="control-label">Last name:</label>
+					<input type="text" class="form-control" id="lastname"[(ngModel)]="user.lastname">
+
+					<span *ngIf='errorReg' style="color: red;">
+						<b *ngIf='errorReg.lastname;'>{{errorReg.lastname[0]}}</b>
+					</span>
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="email" class="control-label">Email:</label>
+					<input type="email" class="form-control" id="email" [(ngModel)]="user.email">
+
+					<span *ngIf='errorReg' style="color: red;">
+						<b *ngIf='errorReg.email;'>{{errorReg.email[0]}}</b>
+					</span>
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="recipient-password" class="control-label">Password:</label>
+					<input type="password" class="form-control" id="recipientpassword" [(ngModel)]="user.password">
+
+					<span *ngIf='errorReg' style="color: red;">
+						<b *ngIf='errorReg.password;'>{{errorReg.password[0]}}</b>
+					</span>
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="recipientconfirm" class="control-label">Confirm password:</label>
+					<input type="password" class="form-control" id="recipientconfirm"  [(ngModel)]="user.password_confirmation">
+				</div>
+
+				<div class="form-group col-md-12">
+					<label for="recipientterm" class="control-label">
+						<input type="checkbox" id="recipientterm" value="1" [(ngModel)]="user.terms"> 
+						You agree to the terms of use and acknowledge the privacy policy.
+					</label>
+					<p *ngIf='errorReg' style="color: red;">
+						<b *ngIf='errorReg.terms;'>{{errorReg.terms[0]}}</b>
+					</p>
+
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<div class="form-group col-md-12">
+					<label class="control-label pull-left">
+						<button type="button" class="btn btn-primary submitSignupForm" (click)="signup()">Signup</button>
+						<span> OR already have an account? <a data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#loginModal" href="javascript:;">Login here</a></span>
+					</label>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+<!-- Checkout Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Login</h4>
+			</div>
+			<div class="modal-body pull-left">
+				
+				<div class="form-group col-md-12">
+					<p class="alert alert-danger" *ngIf='errorLog'>{{errorLog}}</p>
+				</div>
+				
+				<div class="form-group col-md-12">
+					<label for="email">Email</label>
+					<input id="email" type="email" class="form-control" [(ngModel)]="login_user.email">
+					
+				</div>
+			
+				<div class="form-group col-md-12">
+					<label for="password">Password</label>
+					<input id="password" type="password" class="form-control" [(ngModel)]="login_user.password">
+					
+				</div>
+				
+
+			</div>
+			<div class="modal-footer">
+				<div class="form-group col-md-12">
+					<label class="control-label pull-left">
+						<button (click)="login()" class="btn btn-success" type="submit">Login</button>
+						<span> OR Don't have an account? <a data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#signupModal" href="javascript:;">Signup here</a></span>
+					</label>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
