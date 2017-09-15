@@ -13,6 +13,20 @@
 				<div class="contact_detail_sec" style="float: left;">
 					<h3>Make a payment</h3>
 					<div class="checkoutForm" *ngIf="authService.isLoggedIn" >
+
+						<div class="form-group col-md-10">
+						</div>
+						<div class="form-group col-md-10">
+							<span class="alert alert-warning">
+								Payment is on test mode, use the test card to make payment.
+							</span>
+						</div>
+
+						<div class="form-group col-md-10" *ngIf='error' style="margin: 18px 0px;">
+							<span class="alert alert-danger" *ngIf='error.custom'>
+								{{error.custom}}
+							</span>
+						</div>
 						
 						<div class="form-group col-md-10">
 							<label for="card_name" class="control-label">Name on card:</label>
@@ -92,6 +106,7 @@
 						<div class="form-group col-md-10" style="margin-top: 20px;">
 							<label for="card_cvv" class="control-label"></label>
 							<input type="submit" class="checkout_btn2" value="Checkout" (click)="checkout()">
+							<i class="fa fa-spinner fa-spin" style="font-size:35px" *ngIf='loader'></i>
 						</div>
 
 					</div>

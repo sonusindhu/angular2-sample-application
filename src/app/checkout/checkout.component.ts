@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 	styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+	public loader:any = false;
 	public user:any = {email:'',firstname:'',lastname:'',password:'',password_confirmation:'',terms:''};
 	public errorReg:any;
 	public successReg:any;
@@ -68,15 +69,17 @@ export class CheckoutComponent implements OnInit {
 	}
 
 	checkout() {
+		this.loader = true;
 		this.error = null;
 		this.success = null;
 		this.cartService.checkout(this.payment, this.authService.current_user).subscribe(
 			data => {
+				this.loader = false;
 				if(data.error){
 					this.error = data.message;
 				} else{
-					//localStorage.removeItem('cart');
-					//window.location.href = "/checkout";
+					localStorage.removeItem('cart');
+					window.location.href = "/dashboard";
 				}
 			}
 		);
