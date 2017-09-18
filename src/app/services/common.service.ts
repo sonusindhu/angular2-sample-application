@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
+import { AuthenticationService } from '../services/auth.service'
 
 @Injectable()
 export class CommonService {
 
 	public API_ENDPOINT:any;
-	constructor(private http:Http) {
+	constructor(private http:Http, private _auth:AuthenticationService) {
 		this.API_ENDPOINT = environment.API_ENDPOINT;
 	}
 
@@ -75,6 +76,18 @@ export class CommonService {
 		      data.json();
 		      return data.json();
 	    });
+	}
+
+
+	/**
+	 * [getEnrollments description]
+	 */
+	getEnrollments() {
+		return this.http.get(this.API_ENDPOINT+"enrollments/"+this._auth.current_user.id+"?api_token="+this._auth.current_user.api_token)
+		.map(data => {
+			data.json();
+			return data.json();
+		});
 	}
 
 }

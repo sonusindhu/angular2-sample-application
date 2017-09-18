@@ -15,6 +15,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
+import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { OrderComponent } from './order/order.component';
+
 import { AuthGuard } from './_guard/auth.service';
 
 // Route Configuration
@@ -34,6 +37,8 @@ export const routes: Routes = [
 
 	// user login
 	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+	{ path: 'orders', component: OrderComponent, canActivate: [AuthGuard] },
+	{ path: 'enrollments', component: EnrollmentComponent, canActivate: [AuthGuard] },
 
 	// otherwise redirect to notfound
     { path: '**', redirectTo: 'notfound' }

@@ -24,6 +24,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderComponent } from './order/order.component';
+import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { UserSideBarComponent } from './user-side-bar/user-side-bar.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +45,10 @@ import { CheckoutComponent } from './checkout/checkout.component';
     NotfoundComponent,
     DashboardComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderComponent,
+    EnrollmentComponent,
+    UserSideBarComponent
   ],
   imports: [
     BrowserModule,
