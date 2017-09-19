@@ -27,16 +27,24 @@
 									<div class="panel-body">
 										<div class="col-md-12" *ngFor="let course of enrollments">
 											<div class="single_course_sec">
-												<h3>{{course.name}} ({{course.course_hour}} hrs) </h3>
+												<h3>{{course.name}} ({{course.course_hour}} hrs) 
+													<span class="pull-right">
+														{{course.created_at}}
+													</span>
+												</h3>
 												<p>
 													{{course.short_description}}
 												</p>
 												<div class="read_btn_sec">
-													<a routerLink='/course/{{course.id}}' class="btn btn-warning">Read More</a>
+													<a routerLink='/course/{{course.id}}' class="btn btn-warning">Start Course</a>
 
-													<span class="pull-right">
-														<p class="price3">${{course.course_price | number}}</p>	
-													</span>
+
+													<a routerLink='/course/certificate/{{course.id}}' class="btn btn-success" *ngIf="course.course_completed==1">Download Certificate</a>
+
+													<a routerLink='/course/certificate/{{course.id}}' class="btn btn-danger" *ngIf="course.course_completed==0">Request Certificate</a>
+
+													<a routerLink='/certificate/cancel/{{course.id}}' class="btn btn-info" *ngIf="course.course_completed==2">Cancel Request</a>
+													
 												</div>
 												
 											</div>
