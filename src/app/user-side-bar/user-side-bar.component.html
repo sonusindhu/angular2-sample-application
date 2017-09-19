@@ -10,6 +10,7 @@
 					<a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="list-group-item" routerLink="/dashboard">Dashboard</a>
 					<a [routerLinkActive]="['active']" class="list-group-item" routerLink="/enrollments">Enrollments</a>
 					<a [routerLinkActive]="['active']" class="list-group-item" routerLink="/orders">Orders</a>
+					<a class="list-group-item" (click)="_auth.logout()" href="javascript:;">Logout</a>
 				</div>
 
 			</div>

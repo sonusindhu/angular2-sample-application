@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthenticationService } from '../services/auth.service';
+
 @Component({
   selector: 'app-user-side-bar',
   templateUrl: './user-side-bar.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserSideBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _auth: AuthenticationService) { }
 
   ngOnInit() {
   }

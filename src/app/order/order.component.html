@@ -1,7 +1,7 @@
 <div class="container-fluid about_page_sec">
 	<div class="overlay"></div>
 	<div class="container about_container">
-		<h3 class="about_heading">Dashboard</h3>
+		<h3 class="about_heading">Your orders details</h3>
 	</div>
 </div>
 
@@ -22,8 +22,26 @@
 							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 								<div class="panel panel-default">
 									<div class="panel-body">
-										
-										<div class="alert alert-info">Order details will be here</div>
+										<div class="col-md-12 table-responsive">
+											<table class="table table-hover">
+												<thead>
+													<tr>
+														<th>Account number</th>
+														<th>Amount</th>
+														<th>Card type</th>
+														<th>Transaction Id</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr *ngFor="let order of orders">
+														<td>{{order.account_number}}</td>
+														<td>${{order.amount}}</td>
+														<td>{{order.card_type}}</td>
+														<td>{{order.transaction_id}}</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
 										
 									</div>
 								</div>

@@ -90,4 +90,13 @@ export class CommonService {
 		});
 	}
 
+
+	getOrders() {
+		return this.http.get(this.API_ENDPOINT+"orders/"+this._auth.current_user.id+"?api_token="+this._auth.current_user.api_token)
+		.map(data => {
+			data.json();
+			return data.json();
+		});
+	}
+
 }
