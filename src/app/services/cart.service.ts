@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers } from '@angular/http';
+import {HttpClient } from '@angular/common/http';
 import {CartItem} from '../model/cart-item-model';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
 import { environment } from '../../environments/environment';
 
-const jsonHeader = new Headers();
-jsonHeader.append('Content-Type', 'application/json');
+// const jsonHeader = new Headers();
+// jsonHeader.append('Content-Type', 'application/json');
 
 @Injectable()
 export class CartService {
@@ -18,7 +18,7 @@ export class CartService {
   };
   private API_ENDPOINT:string;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this.createCartObserver();
     this.API_ENDPOINT = environment.API_ENDPOINT;
   }
@@ -52,13 +52,15 @@ export class CartService {
   }
 
   transact(method, url, payload?) {
+    
     if (!payload || typeof payload === 'string') {
       return this.http[method](url, payload)
       .map(res => res.json());
     } else {
-      return this.http[method](url, JSON.stringify(payload), {headers: jsonHeader})
+      return this.http[method](url, JSON.stringify(payload))
       .map(res => res.json());
     }
+
   }
 
   cartTotals() {
@@ -97,9 +99,9 @@ export class CartService {
      urlSearchParams.append('amount', amount.toString());
      let body = urlSearchParams.toString()
 
-     let headers = new Headers();
-     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-     return this.http.post(this.API_ENDPOINT+'checkout?api_token='+user.api_token , body , {headers:headers})
+     // let headers = new Headers();
+     // headers.append('Content-Type', 'application/x-www-form-urlencoded');
+     return this.http.post(this.API_ENDPOINT+'checkout?api_token='+user.api_token , body)
      .map(data => {
        data.json();
        return data.json();

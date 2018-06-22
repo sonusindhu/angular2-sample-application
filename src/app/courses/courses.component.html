@@ -1,52 +1,52 @@
 <div class="container-fluid about_page_sec">
-		<div class="overlay"></div>
-		<div class="container about_container">
-			<h3 class="about_heading">COURSES</h3>
-		</div>
+	<div class="overlay"></div>
+	<div class="container about_container">
+		<h3 class="about_heading">COURSES</h3>
 	</div>
-	
-	<div class="container-fluid welcome_sec">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="hwai_head">Hawaii Online Continuing Education (CE)</h3>
-				</div>
-				<div class="clearfix"></div>
+</div>
+
+<div class="container-fluid welcome_sec">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="hwai_head">Hawaii Online Continuing Education (CE)</h3>
 			</div>
-			
 			<div class="clearfix"></div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="about_contnt_sec">
-						<h3>COURSES</h3>
-					</div>
-					<div class="clearfix"></div>					
-				</div>
-			</div>		
-				<div class="clearfix"></div>
-			<div class="row">
-					<div class="col-md-12" *ngFor="let course of courses">
-						<div class="single_course_sec">
-							<h3>{{course.name}} ({{course.course_hour}} hrs) </h3>
-							<p>
-								{{course.short_description}}
-							</p>
-							<div class="read_btn_sec">
-								<a routerLink='/course/{{course.id}}' class="btn btn-warning">Read More</a>
-								
-								<a (click)="addItem(course)" href="javascript:;" class="btn btn-success" *ngIf="!placeItem(course)">Add to cart</a>
-
-								<a (click)="removeItem(course)" href="javascript:;" class="btn btn-danger" *ngIf="placeItem(course)" style="background: #d9534f; border-color: #d9534f">Remove from cart</a>
-
-								<span class="pull-right">
-									<p class="price3">${{course.course_price | number}}</p>	
-								</span>
-							</div>
-							
-						</div>
-					</div>
-				<div class="clearfix"></div>
-			</div>
-			
 		</div>
+		
+		<div class="clearfix"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="about_contnt_sec">
+					<h3>COURSES</h3>
+				</div>
+				<div class="clearfix"></div>					
+			</div>
+		</div>		
+		<div class="clearfix"></div>
+		<div class="row">
+			<div class="col-md-12" *ngFor="let course of courses">
+				<div class="single_course_sec">
+					<h3>{{course.name}} ({{course.course_hour}} hrs) </h3>
+					<p>
+						{{course.short_description}}
+					</p>
+					<div class="read_btn_sec">
+						<a routerLink='/course/{{course.id}}' class="btn btn-warning">Read More</a>
+						
+						<a (click)="addItem(course)" href="javascript:;" class="btn btn-success" *ngIf="!placeItem(course)">Add to cart</a>
+
+						<a (click)="removeItem(course)" href="javascript:;" class="btn btn-danger" *ngIf="placeItem(course)" style="background: #d9534f; border-color: #d9534f">Remove from cart</a>
+
+						<span class="pull-right">
+							<p class="price3">${{course.course_price | number}}</p>	
+						</span>
+					</div>
+					
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		
 	</div>
+</div>

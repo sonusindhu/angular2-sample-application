@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 import { AuthenticationService } from '../services/auth.service'
@@ -8,7 +8,7 @@ import { AuthenticationService } from '../services/auth.service'
 export class CommonService {
 
 	public API_ENDPOINT:any;
-	constructor(private http:Http, private _auth:AuthenticationService) {
+	constructor(private http:HttpClient, private _auth:AuthenticationService) {
 		this.API_ENDPOINT = environment.API_ENDPOINT;
 	}
 
@@ -61,6 +61,7 @@ export class CommonService {
 	}
 
 	postComment(contact:any){
+		
 		let urlSearchParams = new URLSearchParams();
 	    urlSearchParams.append('email', contact.email);
 	    urlSearchParams.append('phone', contact.phone);
@@ -68,14 +69,15 @@ export class CommonService {
 	    urlSearchParams.append('comment', contact.comment);
 	    let body = urlSearchParams.toString()
 
-	    let headers = new Headers();
-	    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+	    // let headers = new Headers();
+	    // headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-	    return this.http.post(this.API_ENDPOINT+'contact' , body , {headers:headers})
+	    return this.http.post(this.API_ENDPOINT+'contact' , body)
 		    .map(data => {
 		      data.json();
 		      return data.json();
 	    });
+
 	}
 
 

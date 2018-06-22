@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { CommonService } from './services/common.service';
@@ -52,7 +52,7 @@ import { UserSideBarComponent } from './user-side-bar/user-side-bar.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     routing
   ],

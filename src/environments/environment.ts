@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  API_ENDPOINT: "http://sonu.pnf-sites.info/work1/public/api/"
+  API_ENDPOINT: "http://locahost/APIs/ngApi/public/"
 };

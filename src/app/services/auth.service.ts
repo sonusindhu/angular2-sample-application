@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {Http, Headers} from '@angular/http';
+import {HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 
@@ -12,7 +12,7 @@ export class AuthenticationService {
   public redirectUrl:string="login";
   public API_ENDPOINT:any;
   public current_user:any;
-  constructor(private _router: Router, private http:Http){
+  constructor(private _router: Router, private http:HttpClient){
     this.API_ENDPOINT = environment.API_ENDPOINT;
     if(this.userInfo()){
       this.isLoggedIn = true;
@@ -34,10 +34,10 @@ export class AuthenticationService {
     urlSearchParams.append('password', user.password);
     let body = urlSearchParams.toString()
 
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    // let headers = new Headers();
+    // headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    return this.http.post(this.API_ENDPOINT+'user/login' , body , {headers:headers})
+    return this.http.post(this.API_ENDPOINT+'user/login' , body)
     .map(data => {
       data.json();
       return data.json();
