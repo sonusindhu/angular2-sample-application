@@ -19,8 +19,7 @@ export class CommonService {
 	getDataObservable(url:string) {
 		return this.http.get(this.API_ENDPOINT+url)
 		.map(data => {
-			data.json();
-			return data.json();
+			return data;
 		});
 	}
 
@@ -31,8 +30,7 @@ export class CommonService {
 	getCourses(url:string) {
 		return this.http.get(this.API_ENDPOINT+url)
 		.map(data => {
-			data.json();
-			return data.json();
+			return data;
 		});
 	}
 
@@ -43,8 +41,7 @@ export class CommonService {
 	getFaqs(url:string) {
 		return this.http.get(this.API_ENDPOINT+url)
 		.map(data => {
-			data.json();
-			return data.json();
+			return data;
 		});
 	}
 
@@ -55,8 +52,7 @@ export class CommonService {
 	findCourse(url:string) {
 		return this.http.get(this.API_ENDPOINT+url)
 		.map(data => {
-			data.json();
-			return data.json();
+			return data;
 		});
 	}
 
@@ -74,8 +70,7 @@ export class CommonService {
 
 	    return this.http.post(this.API_ENDPOINT+'contact' , body)
 		    .map(data => {
-		      data.json();
-		      return data.json();
+		      return data;
 	    });
 
 	}
@@ -87,8 +82,7 @@ export class CommonService {
 	getEnrollments() {
 		return this.http.get(this.API_ENDPOINT+"enrollments/"+this._auth.current_user.id+"?api_token="+this._auth.current_user.api_token)
 		.map(data => {
-			data.json();
-			return data.json();
+			return data;
 		});
 	}
 
@@ -96,8 +90,7 @@ export class CommonService {
 	getOrders() {
 		return this.http.get(this.API_ENDPOINT+"orders/"+this._auth.current_user.id+"?api_token="+this._auth.current_user.api_token)
 		.map(data => {
-			data.json();
-			return data.json();
+			return data;
 		});
 	}
 

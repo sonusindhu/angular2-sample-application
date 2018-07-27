@@ -103,8 +103,7 @@ export class CartService {
      // headers.append('Content-Type', 'application/x-www-form-urlencoded');
      return this.http.post(this.API_ENDPOINT+'checkout?api_token='+user.api_token , body)
      .map(data => {
-       data.json();
-       return data.json();
+       return data;
      });
 
    }

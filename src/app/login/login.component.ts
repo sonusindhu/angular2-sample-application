@@ -26,13 +26,13 @@ export class LoginComponent implements OnInit {
 	login() {
 		this._service.login(this.user).subscribe(
 			data => {
-				if(data.error){
-		        	this.errorMsg = 'Invalid email/password combination.';
-				} else{
-		        	localStorage.setItem("user", JSON.stringify(data));
-		        	//this._router.navigate(['/dashboard']);
-		        	window.location.href = "/dashboard"
-		        }
+				// if(data.error){
+		  //       	this.errorMsg = 'Invalid email/password combination.';
+				// } else{
+		  //       	localStorage.setItem("user", JSON.stringify(data));
+		  //       	//this._router.navigate(['/dashboard']);
+		  //       	window.location.href = "/dashboard"
+		  //       }
 			}
 		);
     }

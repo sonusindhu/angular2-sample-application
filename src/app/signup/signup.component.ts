@@ -23,11 +23,11 @@ export class SignupComponent implements OnInit {
 		this.successMsg = null;
 		this._service.signup(this.user).subscribe(
 			data => {
-				if(data.error){
-					this.errorMsg = data.message;
-				} else{
-					this._router.navigate(['/login']);
-				}
+				// if(data.error){
+				// 	this.errorMsg = data.message;
+				// } else{
+				// 	this._router.navigate(['/login']);
+				// }
 			}
 		);
 	}

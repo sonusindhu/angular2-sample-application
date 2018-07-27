@@ -39,8 +39,7 @@ export class AuthenticationService {
 
     return this.http.post(this.API_ENDPOINT+'user/login' , body)
     .map(data => {
-      data.json();
-      return data.json();
+      return data;
     });
 
   }
@@ -60,12 +59,9 @@ export class AuthenticationService {
     urlSearchParams.append('terms', user.terms);
     let body = urlSearchParams.toString()
 
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post(this.API_ENDPOINT+'user/signup' , body , {headers:headers})
+    return this.http.post(this.API_ENDPOINT+'user/signup' , body)
     .map(data => {
-      data.json();
-      return data.json();
+      return data;
     });
 
   }

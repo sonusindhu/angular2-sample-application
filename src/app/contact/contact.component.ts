@@ -21,12 +21,12 @@ export class ContactComponent implements OnInit {
 		this.successMsg = null;
 		this._service.postComment(this.contact).subscribe(
 			data => {
-				if(data.error){
-		        	this.errorMsg = data.message;
-				} else{
-		        	this.successMsg = data.message;
-		        	this.contact = {email:'',name:'',phone:'',comment:''};
-		        }
+				// if(data.error){
+		  //       	this.errorMsg = data.message;
+				// } else{
+		  //       	this.successMsg = data.message;
+		  //       	this.contact = {email:'',name:'',phone:'',comment:''};
+		  //       }
 			}
 		);
     }

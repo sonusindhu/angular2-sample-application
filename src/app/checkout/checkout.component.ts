@@ -37,17 +37,16 @@ export class CheckoutComponent implements OnInit {
 	}
 
 	signup() {
-		console.log(this.user);
 		this.errorReg = null;
 		this.successReg = null;
 		this.authService.signup(this.user).subscribe(
 			data => {
-				if(data.error){
+				/*if(data.error){
 					this.errorReg = data.message;
 				} else{
 					this.successReg = data.message;
 					this.user = {email:'',firstname:'',lastname:'',password:'',password_confirmation:'',terms:''};
-				}
+				}*/
 			}
 		);
 	}
@@ -58,12 +57,12 @@ export class CheckoutComponent implements OnInit {
 		this.successLog = null;
 		this.authService.login(this.login_user).subscribe(
 			data => {
-				if(data.error){
+				/*if(data.error){
 					this.errorLog = data.message;
 				} else{
 					localStorage.setItem("user", JSON.stringify(data));
 					window.location.href = "/checkout";
-				}
+				}*/
 			}
 		);
 	}
@@ -75,12 +74,12 @@ export class CheckoutComponent implements OnInit {
 		this.cartService.checkout(this.payment, this.authService.current_user).subscribe(
 			data => {
 				this.loader = false;
-				if(data.error){
-					this.error = data.message;
-				} else{
-					localStorage.removeItem('cart');
-					window.location.href = "/dashboard";
-				}
+				// if(data.error){
+				// 	this.error = data.message;
+				// } else{
+				// 	localStorage.removeItem('cart');
+				// 	window.location.href = "/dashboard";
+				// }
 			}
 		);
 	}	
